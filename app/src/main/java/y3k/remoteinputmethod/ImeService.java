@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -97,7 +98,7 @@ public class ImeService extends InputMethodService implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        this.getCurrentInputConnection().deleteSurroundingText(1,0);
+        ((InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showInputMethodPicker();
     }
 
     // 這個應該是顯示選字的View，給null不會錯，就這樣了。
